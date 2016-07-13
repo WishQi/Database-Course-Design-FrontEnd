@@ -1,0 +1,35 @@
+.logBtn {
+    font-size: 16px;
+    font-family: PingFang SC;
+    width: 70;
+    height: 40;
+}
+
+#background {
+    height: 700px;
+    background-image: url("../UI_png/customerMain/background.png");
+}
+
+.slogan {
+    position: absolute;
+    top: 50%;
+    margin-top: -180px;
+    padding: 50px;
+    font-size: 50px;
+    font-family: PingFang SC;
+    color: white;
+}
+
+.textInput {
+    margin-top: 30px;
+}
+
+.jumpLink {
+    float: right;
+    display: inline-block;
+    margin-top: 30px;
+    color: white;
+    text-decoration: underline;
+    font-size: 14px;
+    font-family: PingFang SC;
+}
