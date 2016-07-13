@@ -1,8 +1,14 @@
-.logBtn {
+.log-button {
     font-size: 16px;
     font-family: PingFang SC;
     width: 70;
     height: 40;
+    margin-top: 7px;
+}
+
+.navbar-text {
+    margin-top: 0;
+    font-size: 16px;
 }
 
 #background {
@@ -11,17 +17,20 @@
 }
 
 .slogan {
-    position: absolute;
-    top: 50%;
-    margin-top: -180px;
-    padding: 50px;
+    margin-top: 200px;
     font-size: 50px;
     font-family: PingFang SC;
     color: white;
 }
 
+.form-customer {
+    margin-top: 200px;
+    width: 287px;
+}
+
 .textInput {
     margin-top: 30px;
+    border-radius: 10px !important;
 }
 
 .jumpLink {

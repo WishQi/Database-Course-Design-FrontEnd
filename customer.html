@@ -4,9 +4,9 @@
         <meta charset="utf-8">
         <title>宜家超市</title>
         <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/customer.css">
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
+        <link rel="stylesheet" href="css/customer.css">
         <style media="screen">
             body {
                 padding-top: 20px
@@ -14,35 +14,35 @@
         </style>
     </head>
     <body>
-        <nav>
-            <div class="collapse navbar-collapse col-md-offset-1">
-                <ul class="nav navbar-nav" style="font-size: 16px; vertical-align: middle">
+        <nav class="collapse navbar-collapse">
+            <div class="col-md-6 col-md-offset-1">
+                <ul class="nav navbar-nav navbar-text">
                     <li><a href="#" style="font-family: PingFang SC; color: #4A4A4A">热卖商品</a></li>
                     <li><a href="#" style="font-family: PingFang SC; color: #4A4A4A">商品查询</a></li>
                     <li><a href="#" style="font-family: PingFang SC; color: #4A4A4A">查询储值卡信息</a></li>
                     <li><a href="#" style="font-family: PingFang SC; color: #4A4A4A">储值卡充值</a></li>
                     <li><a href="#" style="font-family: PingFang SC; color: #4A4A4A">储值卡信息</a></li>
                 </ul>
-                <div class="col-md-offset-9" style="margin-top: 7px">
-                    <button type="button" name="登录" class="btn btn-default logBtn">登录</button>
-                    <button type="button" name="登录" class="btn btn-success logBtn">注册</button>
-                </div>
+            </div>
+            <div class="col-md-3 col-md-offset-2">
+                <button type="button" class="btn btn-default log-button">登录</button>
+                <button type="button" class="btn btn-success log-button">注册</button>
             </div>
         </nav>
         <div id="background">
-            <div class="col-md-7" style="height: 100%">
-                <p class="col-md-offset-1 slogan">
-                    顾客您好<br><br>
-                    欢迎来到宜家超市系统
-                </p>
+            <div class="col-md-6 col-md-offset-1 slogan">
+                <p>顾客您好</p><br>
+                <p>欢迎来到宜家超市系统</p>
             </div>
             <div class="col-md-5" style="height: 100%;">
-                <div class="input-group col-md-offset-2" style="position: absolute; top: 50%; margin-top: -160px; width: 287px">
-                    <input type="text" class="form-control textInput" placeholder="用户名">
-                    <input type="text" class="form-control textInput" placeholder="手机号码">
-                    <input type="text" class="form-control textInput" placeholder="账号密码">
-                    <button type="button" class="btn btn-success logBtn" style="width: 287px; margin-top: 30px">注册会员</button>
-                    <a href="#" class="jumpLink" style="">跳转员工页面</a>
+                <div class="col-md-offset-2">
+                    <form class="input-group form-customer" action="" method="post">
+                        <input type="text" class="form-control textInput" placeholder="用户名">
+                        <input type="text" class="form-control textInput" placeholder="手机号码">
+                        <input type="text" class="form-control textInput" placeholder="账号密码">
+                        <button type="button" class="btn btn-success log-button" style="width: 287px; margin-top: 30px; border-radius: 10px">注册会员</button>
+                        <a href="#" class="jumpLink">跳转员工页面</a>
+                    </form>
                 </div>
             </div>
         </div>
