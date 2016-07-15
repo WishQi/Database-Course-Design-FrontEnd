@@ -1,0 +1,113 @@
+body {
+    padding-top: 20px
+}
+
+.header-logo {
+    padding: 20px 0;
+    /*background-color: white;*/
+}
+
+.header-logo-link {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+}
+
+.header-logo-text {
+    font-family: PingFang SC;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: -0.5px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.form-login {
+    background-color: #fff;
+    border-style: solid;
+    border-width: 1.5px;
+    border-color: #d8dee2;
+    border-radius: 5px;
+    padding: 25px 30px;
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 350px;
+}
+
+.login-signup-link {
+    display: block;
+    width: 350px;
+    padding: 20px 30px;
+    font-family: PingFang SC;
+    font-size: 15px;
+    margin: 30px auto;;
+    text-align: center;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: #d8dee2;
+    border-width: 1.5px;
+}
+
+.text-input {
+    margin-top: 20px;
+    border-radius: 5px !important;
+}
+
+.btn-login {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.login-form {
+    width: 316px;
+    height: 235px;
+    background-color: blue;
+    margin-top: 30px;
+}
+
+.log-button {
+    font-size: 16px;
+    font-family: PingFang SC;
+    width: 70;
+    height: 40;
+    margin-top: 7px;
+}
+
+.navbar-text {
+    margin-top: 0;
+    font-size: 16px;
+}
+
+#background {
+    height: 700px;
+    background-image: url("../UI_png/customerMain/background.png");
+}
+
+.slogan {
+    margin-top: 200px;
+    font-size: 50px;
+    font-family: PingFang SC;
+    color: white;
+}
+
+.form-customer {
+    margin-top: 200px;
+    width: 287px;
+}
+
+.textInput {
+    margin-top: 30px;
+    border-radius: 10px !important;
+}
+
+.jumpLink {
+    float: right;
+    display: inline-block;
+    margin-top: 30px;
+    color: white;
+    text-decoration: underline;
+    font-size: 14px;
+    font-family: PingFang SC;
+}
