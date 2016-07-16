@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>仓库管理-商品种类</title>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <link rel="stylesheet" href="css/own.css">
+    </head>
+    <body>
+        <div class="container clearfix">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">宜家超市</a>
+                </div>
+                <form class="navbar-form navbar-left" style="margin-left: 30px" role="search" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="请输入关键字">
+                    </div>
+                </form>
+            </nav>
+        </div>
+        <div class="container clearfix">
+            <div class="col-md-2">
+                <a class="" href="#" style="display:inline-block; border:none; width:100%"><img src="UI_png/cat.png" alt="" style="width:100%"/></a>
+                <h2 style="font-family:PingFang SC">李茂琦</h2>
+                <p class="subtitle">Maoqi Li</p>
+                <p class="normal-text"><span>员工ID: </span><span>1234567890</span></p>
+                <div class="btn-group-vertical" style="width:100%">
+                    <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">商品管理</span></button>
+                    <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">分区管理</span></button>
+                    <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">仓库管理</span></button>
+                    <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">人员管理</span></button>
+                    <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">投诉管理</span></button>
+                    <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">供货商管理</span></button>
+                </div>
+            </div>
+            <div class="col-md-8" style="margin-left:20px">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class=""><a href="warehouse-warehouse-ID.html">仓库编号</a></li>
+                    <li role="presentation" class="active"><a href="warehouse-goods-kind.html">商品种类</a></li>
+                    <li role="presentation" class=""><a href="#">具体商品</a></li>
+                    <li role="presentation" class=""><a href="#">批次编号</a></li>
+                    <li role="presentation" class=""><a href="#">批次信息</a></li>
+                    <div class="dropdown" style="float:right">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">仓库类型
+                            <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">普通仓库</a></li>
+                            <li><a href="#">常温食品</a></li>
+                            <li><a href="#">冷藏仓库</a></li>
+                            <li><a href="#">保险柜</a></li>
+                        </ul>
+                    </div>
+                </ul>
+                <div class="" style="margin-top:10px">
+                    <span id="warehouse-id" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">仓库编号</span>
+                    <span id="goods-kind" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">商品种类</span>
+                    <span id="item" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">具体商品</span>
+                    <span id="item" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">批次编号</span>
+                    <span id="item" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">批次信息</span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
