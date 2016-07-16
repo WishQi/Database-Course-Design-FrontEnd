@@ -7,6 +7,7 @@
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.js"></script>
         <link rel="stylesheet" href="css/own.css">
+        <script src="js/own.js"></script>
     </head>
     <body>
         <div class="container clearfix">
@@ -41,10 +42,10 @@
                     <li role="presentation" class="active"><a href="warehouse-warehouse-id.html">仓库编号</a></li>
                     <li role="presentation" class=""><a href="warehouse-goods-kind.html">商品种类</a></li>
                     <li role="presentation" class=""><a href="warehouse-goods-item">具体商品</a></li>
-                    <li role="presentation" class=""><a href="#">批次编号</a></li>
+                    <li role="presentation" class=""><a href="warehouse-batch-id.html">批次编号</a></li>
                     <li role="presentation" class=""><a href="#">批次信息</a></li>
                     <div class="dropdown" style="float:right">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">仓库类型
+                        <button id="warehouse-kind-selector" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">仓库类型
                             <span class="caret"></span></button>
                         <ul class="dropdown-menu">
                             <li><a href="#">普通仓库</a></li>
@@ -58,8 +59,8 @@
                     <span id="warehouse-id" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">仓库编号</span>
                     <span id="goods-kind" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">商品种类</span>
                     <span id="item" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">具体商品</span>
-                    <span id="item" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">批次编号</span>
-                    <span id="item" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">批次信息</span>
+                    <span id="batch-id" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">批次编号</span>
+                    <span id="batch-info" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">批次信息</span>
                 </div>
             </div>
         </div>
