@@ -23,6 +23,17 @@ body {
     margin-top: 30px;
 }
 
+.subtitle {
+    style=font-family: PingFang SC;
+    color: #999
+}
+
+.normal-text {
+    font-family: PingFang SC;
+    font-size: 15px;
+    color: #4A4A4A;
+}
+
 .form-login {
     background-color: #fff;
     border-style: solid;
