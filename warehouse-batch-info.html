@@ -45,13 +45,12 @@
                     <li role="presentation" class=""><a href="warehouse-batch-id.html">批次编号</a></li>
                     <li role="presentation" class="active"><a href="warehouse-batch-info.html">批次信息</a></li>
                     <div class="dropdown" style="float:right">
-                        <button id="warehouse-kind-selector" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">仓库类型
-                            <span class="caret"></span></button>
+                        <button id="warehouse-kind-selector" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">普通仓库<span class="caret"></span></button>
                         <ul class="dropdown-menu">
-                            <li><a href="#">普通仓库</a></li>
-                            <li><a href="#">常温食品</a></li>
-                            <li><a href="#">冷藏仓库</a></li>
-                            <li><a href="#">保险柜</a></li>
+                            <li><a id="normal-warehouse" onclick="warehouseChangeKind('普通仓库')">普通仓库</a></li>
+                            <li><a id="room-temperature-food" onclick="warehouseChangeKind('常温食品')">常温食品</a></li>
+                            <li><a id="cold-warehouse" onclick="warehouseChangeKind('冷藏仓库')">冷藏仓库</a></li>
+                            <li><a id="vault" onclick="warehouseChangeKind('保险柜')">保险柜</a></li>
                         </ul>
                     </div>
                 </ul>

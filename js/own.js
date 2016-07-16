@@ -11,3 +11,10 @@ function listAddItem(dataArray) {
         document.getElementById("list-group").appendChild(newItem);
     }
 }
+
+function warehouseChangeKind(newKind) {
+    document.getElementById("warehouse-kind-selector").innerHTML = newKind;
+    var caret = document.createElement("span");
+    caret.setAttribute("class", "caret");
+    document.getElementById("warehouse-kind-selector").appendChild(caret);
+}
