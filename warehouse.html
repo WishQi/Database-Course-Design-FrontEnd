@@ -8,6 +8,11 @@
         <script src="js/bootstrap.js"></script>
         <link rel="stylesheet" href="css/own.css">
         <script src="js/own.js"></script>
+        <script type="text/javascript">
+            function changeWarehouseKind(newKind) {
+                document.getElementById("warehouse-kind-selector").innerHTML = newKind;
+            }
+        </script>
     </head>
     <body>
         <div class="container clearfix">
@@ -60,6 +65,9 @@
                     <span id="item" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">具体商品</span>
                     <span id="batch-id" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">批次编号</span>
                     <span id="batch-info" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">批次信息</span>
+                </div>
+                <div class="list-group" style="margin-top:20px">
+
                 </div>
             </div>
         </div>

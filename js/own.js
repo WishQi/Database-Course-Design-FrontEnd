@@ -3,11 +3,11 @@ function changeWarehouseKind(newKind) {
 }
 
 function listAddItem(dataArray) {
-    for (var item in dataArray) {
+    for (i = 0; i < dataArray.length; ++i) {
         var newItem = document.createElement("a");
         newItem.setAttribute("href", "#");
         newItem.setAttribute("class", "list-group-item");
-        newItem.innerHTML = item;
+        newItem.innerHTML = dataArray[i];
         document.getElementById("list-group").appendChild(newItem);
     }
 }
