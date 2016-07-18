@@ -46,11 +46,25 @@ $(document).ready(function(){
     })
 })
 
+
 $(document).ready(function(){
-    $("#add_goods_supplied").click(function(){
+    $(".purchase-goods").click(function(){
         $(this).facebox();
     })
 })
+
+$(document).ready(function(){
+    $("#create_new_district").click(function(){
+        $(this).facebox();
+    })
+})
+
+function generateWarehouseList(warehouseIdArray){
+    for(i = 0; i < warehouseIdArray.length; ++i) {
+        var content = $("<option></option>").text(warehouseIdArray[i]);
+        $("#select_warehouse_list").append(content);
+    }
+}
 
 // $(document).ready(function(){
 //     $("#make_sure").click(function(){

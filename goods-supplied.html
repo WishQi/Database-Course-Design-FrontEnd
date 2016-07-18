@@ -52,13 +52,27 @@
                     <span id="goods-kind" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">供应商品</span>
                 </div>
                 <div class="list-group" style="margin-top:20px">
-                    <!-- 列表 -->
-                    <div class="list-group-item" style="background-color:#f5f5f5">
-                        <button type="button" id="add_goods_supplied" class="btn btn-success">新增商品 +</button>
+                    <div class="panel-group">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" href="#collapse1">新增商品 +</a>
+                                </h4>
+                            </div>
+                            <div id="collapse1" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <input class="form-control" placeholder="仓库编号">
+                                </div>
+                                <div class="panel-footer">
+                                    <button type="button" class="btn btn-success">确定</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="list-group-item">
                         <h4 class="col-md-10" style="font-family:PingFang SC">红烧牛肉面</h4>
-                        <button type="button" class="btn btn-danger delete-item-btn col-md-offset-1">删除</button>
+                        <button type="button" class="btn btn-primary purchase-goods">购进</button>
+                        <button type="button" class="btn btn-danger delete-item-btn">删除</button>
                     </div>
                 </div>
             </div>
@@ -68,8 +82,33 @@
                 <div class="facebox-content">
                     <form role="form">
                         <div class="form-group">
-                            <label>商品编号:</label>
-                            <input class="form-control" placeholder="商品编号">
+                            <label for="sel1">可选仓库列表：</label>
+                            <select id="select_warehouse_list" class="form-control" id="sel1">
+                                <!-- 仓库编号列表 -->
+                                <script>
+                                    generateWarehouseList([10000, 10000, 110001]);
+                                </script>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>批次编号:</label>
+                            <input class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>批次编号:</label>
+                            <input class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>购买价格:</label>
+                            <input class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>购进数量:</label>
+                            <input class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>购买时间:</label>
+                            <input class="form-control datetime">
                         </div>
                         <button id="make_sure" type="button" class="close">确定</button>
                     </form>
