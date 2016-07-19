@@ -61,22 +61,22 @@
                             </div>
                             <div id="collapse1" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    <input class="form-control" placeholder="仓库编号">
-                                </div>
-                                <div class="panel-footer">
-                                    <button type="button" class="btn btn-success">确定</button>
+                                    <div class="input-group col-md-7">
+                                        <input type="text" class="form-control" placeholder="请输入商品名或商品编号(支持模糊查找)">
+                                        <span class="input-group-btn"><button type="button" class="btn btn-success">搜索商品</button></span>
+                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="list-group-item">
-                        <div class="col-md-10">
-                            <h4 style="display:inline-block; color:#4078c0">红烧牛肉面</h4>
-                            <span id="des_info" class="normal-text" style="display: inline-block; margin-left: 20px">描述信息：</span>
-                        </div>
-                        <!-- <h4 class="col-md-10" style="font-family:PingFang SC">红烧牛肉面</h4> -->
-                        <button type="button" class="btn btn-primary purchase-goods">购进</button>
-                        <button type="button" class="btn btn-danger delete-item-btn">删除</button>
+                        <h4 class="list-group-item-heading" style="display:inline-block"><a href="#">红烧牛肉面</a></h4>
+                        <button type="button" class="btn btn-danger delete-item-btn" style="float:right">删除</button>
+                        <button type="button" class="btn btn-primary purchase-goods" style="float:right">购进</button>
+                        <p class="list-group-item-text">
+                                描述信息: 哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                        </p>
                     </div>
                 </div>
             </div>
@@ -93,14 +93,6 @@
                                     generateWarehouseList([10000, 10000, 110001]);
                                 </script>
                             </select>
-                        </div>
-                        <div class="form-group">
-                            <label>批次编号:</label>
-                            <input class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label>批次编号:</label>
-                            <input class="form-control">
                         </div>
                         <div class="form-group">
                             <label>购买价格:</label>

@@ -2,8 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>供应商管理-供应商家</title>
-
+        <title>商品管理</title>
         <link rel="stylesheet" href="css/bootstrap.css">
         <script src="js/jquery.js"></script>
         <script src="js/bootstrap.js"></script>
@@ -13,7 +12,6 @@
 
         <link rel="stylesheet" href="css/own.css"/>
         <script src="js/own.js"></script>
-
     </head>
     <body>
         <div class="container clearfix">
@@ -36,54 +34,68 @@
                 <p class="normal-text"><span>员工ID: </span><span>1234567890</span></p>
                 <div class="btn-group-vertical" style="width:100%">
                     <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">商品管理</span></button>
-                    <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">分区管理</span></button>
+                    <button type="button" class="btn btn-default active" style="height:50px"><span class="normal-text">分区管理</span></button>
                     <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">仓库管理</span></button>
                     <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">人员管理</span></button>
                     <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">投诉管理</span></button>
-                    <button type="button" class="btn btn-default active" style="height:50px"><span class="normal-text">供货商管理</span></button>
+                    <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">供货商管理</span></button>
                 </div>
             </div>
             <div class="col-md-8" style="margin-left:20px">
+                <!-- 总模块 -->
                 <ul class="nav nav-tabs">
-                    <li role="presentation" class="active"><a href="supplier.html">供应商家</a></li>
-                    <li role="presentation" class=""><a href="goods-supplied.html">供应商品</a></li>
+                    <li role="presentation" class=""><a href="#">商品列表</a></li>
                 </ul>
-                <div class="" style="margin-top:10px">
-                    <span id="warehouse-id" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">供应商家</span>
-                    <span id="goods-kind" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">供应商品</span>
+
+                <!-- 标签 -->
+                <!-- <div class="" style="margin-top:10px">
+                    <span id="" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">楼层列表</span>
+                    <span id="" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">分区列表</span>
+                    <span id="" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">货架列表</span>
+                </div> -->
+                <!-- 搜索框 -->
+                <div class="input-group" style="margin-top:20px">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-primary">搜索</button>
+                    </span>
+                    <input type="text" class="form-control" placeholder="支持模糊查询">
                 </div>
-                <div id="list_group" class="list-group" style="margin-top:20px">
-                    <div class="list-group-item" style="background-color:#f5f5f5">
-                        <button id="add_supplier_btn" type="button" class="btn btn-success">新增供应商 +</button>
-                    </div>
-                    <!-- 列表 -->
-                    <div class="list-group-item">
-                        <div class="col-md-10">
-                            <h4 style="display:inline-block"><a href="#" style="display:inline-block; color:#4078c0">康师傅</a></h4>
-                            <span id="des_info" class="normal-text" style="display: inline-block; margin-left: 20px">描述信息：</span>
-                        </div>
-                        <button id="edit_facebox_btn" type="button" class="btn btn-info">编辑</button>
-                        <button type="button" class="btn btn-primary des-btn" data-placement="left">描述</button>
-                    </div>
-                </div>
+                <!-- 表格 -->
+                <table class="table table-striped" style="margin-top:10px">
+                    <thead>
+                        <tr>
+                            <th>商品编号</th>
+                            <th>商品名</th>
+                            <th>当前单价（元）</th>
+                            <th>仓库编号</th>
+                            <th>货架编号</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>010</th>
+                            <th>康师傅红烧牛肉面</th>
+                            <th>100</th>
+                            <th>10101001010</th>
+                            <th></th>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="facebox" id="facebox" style="display:none; width: 500px; background-color:white; border-style:solid; border-color:black; border-width:0; border-radius:5px; padding: 20px">
+            <!-- 弹窗 -->
+            <!-- <div class="facebox" id="facebox" style="display:none; width: 500px; background-color:white; border-style:solid; border-color:black; border-width:0; border-radius:5px; padding: 20px">
                 <div class="facebox-popup">
                     <div class="facebox-content">
                         <form role="form">
                             <div class="form-group">
-                                <label>供应商名称:</label>
-                                <input id="supplier_name" class="form-control" placeholder="供应商名称">
-                            </div>
-                            <div class="form-group">
-                                <label for="pwd">供应商描述:</label>
-                                <textarea id="supplier_des" class="form-control" rows="5" placeholder="供应商描述"></textarea>
+                                <label>分区编号:</label>
+                                <input class="form-control" placeholder="请输入该货架所在楼层的分区编号">
                             </div>
                             <button id="make_sure" type="button" class="close">确定</button>
                         </form>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </body>
 </html>
