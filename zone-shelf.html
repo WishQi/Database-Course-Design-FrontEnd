@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>分区管理-分区列表</title>
+        <title>分区管理-货架列表</title>
 
         <link rel="stylesheet" href="css/bootstrap.css">
         <script src="js/jquery.js"></script>
@@ -46,8 +46,8 @@
                 <!-- 总模块 -->
                 <ul class="nav nav-tabs">
                     <li role="presentation" class=""><a href="#">楼层列表</a></li>
-                    <li role="presentation" class="active"><a href="#">分区列表</a></li>
-                    <li role="presentation" class=""><a href="#">货架列表</a></li>
+                    <li role="presentation" class=""><a href="#">分区列表</a></li>
+                    <li role="presentation" class="active"><a href="#">货架列表</a></li>
                 </ul>
                 <!-- 标签 -->
                 <div class="" style="margin-top:10px">
@@ -56,50 +56,35 @@
                     <span id="" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">货架列表</span>
                 </div>
                 <!-- 列表 -->
-                <div id="list_group" class="list-group" style="margin-top:20px">
-                    <!-- 列表头部 -->
+                <ul id="list_group" class="list-group" style="margin-top:20px">
+                    <!-- 列表头 -->
                     <div class="list-group-item" style="background-color:#f5f5f5">
-                        <div class="col-md-5">
+                        <!-- <div class="col-md-5">
                             <button id="create_new_district" type="button" class="btn btn-primary">新建分区</button>
                         </div>
                             <div class="input-group col-md-7">
                             <input type="text" class="form-control" placeholder="请输入分区号">
                             <span class="input-group-btn"><button type="button" class="btn btn-success">直接选中分区</button></span>
-                        </div>
+                        </div> -->
                     </div>
                     <!-- 列表具体内容 -->
-                    <div class="list-group-item">
-                        <h4 class="list-group-item-heading" style="display:inline-block"><a href="#">02</a></h4>
-                        <button type="button" class="btn btn-danger delete-item-btn col-md-offset-10">删除</button>
+                    <li class="list-group-item">
+                        <h4 class="list-group-item-heading" style="display:inline-block">02</h4>
+                        <button type="button" class="btn btn-info col-md-offset-10 move-btn">移动</button>
                         <p class="list-group-item-text">
-                                描述信息: 哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                            描述信息：我特么想回家啊！
                         </p>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
+            <!-- 弹窗 -->
             <div class="facebox" id="facebox" style="display:none; width: 500px; background-color:white; border-style:solid; border-color:black; border-width:0; border-radius:5px; padding: 20px">
                 <div class="facebox-popup">
                     <div class="facebox-content">
                         <form role="form">
                             <div class="form-group">
-                                <label>分区名：</label>
-                                <input class="form-control">
-                            </div>
-                            <div class="form-group">
                                 <label>分区编号:</label>
-                                <input class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>楼层编号:</label>
-                                <input class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>购进数量:</label>
-                                <input class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>分区描述：</label>
-                                <textarea id="supplier_des" class="form-control" rows="5"></textarea>
+                                <input class="form-control" placeholder="请输入该货架所在楼层的分区编号">
                             </div>
                             <button id="make_sure" type="button" class="close">确定</button>
                         </form>

@@ -41,7 +41,7 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $(".des-btn").click(function(){
-        var content = "我要崩溃了！"
+        var content = "我要崩溃了！";
         $(this).attr("data-content", content).popover();
     })
 })
@@ -65,6 +65,12 @@ function generateWarehouseList(warehouseIdArray){
         $("#select_warehouse_list").append(content);
     }
 }
+
+$(document).ready(function(){
+    $(".move-btn").click(function(){
+        $(this).facebox();
+    })
+})
 
 // $(document).ready(function(){
 //     $("#make_sure").click(function(){
