@@ -51,32 +51,37 @@
                     <span id="warehouse-id" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">供应商家</span>
                     <span id="goods-kind" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">供应商品</span>
                 </div>
-                <div class="list-group" style="margin-top:20px">
-                    <div class="panel-group">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a data-toggle="collapse" href="#collapse1">新增商品 +</a>
-                                </h4>
-                            </div>
-                            <div id="collapse1" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <div class="input-group col-md-7">
-                                        <input type="text" class="form-control" placeholder="请输入商品名或商品编号(支持模糊查找)">
-                                        <span class="input-group-btn"><button type="button" class="btn btn-success">搜索商品</button></span>
-                                    </div>
-                                    
+                <div class="panel-group" style="margin-top:20px">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" href="#collapse1">新增商品 +</a>
+                            </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="input-group col-md-7">
+                                    <input type="text" class="form-control" placeholder="请输入商品名或商品编号(支持模糊查找)">
+                                    <span class="input-group-btn">
+                                        <button id="search_btn" type="button" class="btn btn-success" onclick=searchGoods() >搜索商品</button>
+                                    </span>
                                 </div>
                             </div>
+                            <ul id="search_result" class="list-group">
+                                <li href="#" class="list-group-item">
+                                    <h4 class="list-group-item-heading"><a class="add-to-goods-list" href="#">商品名</a></h4>
+                                    <p class="list-group-item-text"><span>商品描述：</span><span class="goods-des">徐运佳</span></p>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="list-group-item">
-                        <h4 class="list-group-item-heading" style="display:inline-block"><a href="#">红烧牛肉面</a></h4>
-                        <button type="button" class="btn btn-danger delete-item-btn" style="float:right">删除</button>
-                        <button type="button" class="btn btn-primary purchase-goods" style="float:right">购进</button>
-                        <p class="list-group-item-text">
-                                描述信息: 哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
-                        </p>
+                    <div id="goods_list_group" class="list-group" style="margin-top:20px">
+                        <div class="list-group-item">
+                            <h4 class="list-group-item-heading" style="display:inline-block"><a href="#">红烧牛肉面</a></h4>
+                            <button type="button" class="btn btn-danger delete-item-btn" style="float:right">删除</button>
+                            <button type="button" class="btn btn-primary purchase-goods" style="float:right">购进</button>
+                            <p class="list-group-item-text"><span>商品描述：</span><span class="goods-des">徐运佳</span></p>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>供应商管理-供应商家</title>
+
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.js"></script>
+
+        <link rel="stylesheet" href="css/facebox.css">
+        <script src="js/facebox.js"></script>
+
+        <link rel="stylesheet" href="css/own.css"/>
+        <script src="js/own.js"></script>
+
+    </head>
+    <body>
+        <div class="container clearfix">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">宜家超市</a>
+                </div>
+                <form class="navbar-form navbar-left" style="margin-left: 30px" role="search" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="请输入关键字">
+                    </div>
+                </form>
+            </nav>
+        </div>
+        <div class="container clearfix">
+            <div class="col-md-2">
+                <a class="" href="#" style="display:inline-block; border:none; width:100%"><img src="UI_png/cat.png" alt="" style="width:100%"/></a>
+                <h2 style="font-family:PingFang SC">李茂琦</h2>
+                <p class="subtitle">Maoqi Li</p>
+                <p class="normal-text"><span>员工ID: </span><span>1234567890</span></p>
+                <div class="btn-group-vertical" style="width:100%">
+                    <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">商品管理</span></button>
+                    <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">分区管理</span></button>
+                    <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">仓库管理</span></button>
+                    <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">人员管理</span></button>
+                    <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">投诉管理</span></button>
+                    <button type="button" class="btn btn-default active" style="height:50px"><span class="normal-text">供货商管理</span></button>
+                </div>
+            </div>
+            <div class="col-md-8" style="margin-left:20px">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active"><a href="supplier.html">供应商家</a></li>
+                    <li role="presentation" class=""><a href="goods-supplied.html">供应商品</a></li>
+                </ul>
+                <div class="" style="margin-top:10px">
+                    <span id="warehouse-id" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">供应商家</span>
+                    <span id="goods-kind" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">供应商品</span>
+                </div>
+                <div id="list_group" class="list-group" style="margin-top:20px">
+                    <div class="list-group-item" style="background-color:#f5f5f5">
+                        <button id="add_supplier_btn" type="button" class="btn btn-success">新增供应商 +</button>
+                    </div>
+                    <!-- 列表 -->
+                    <div class="list-group-item">
+                        <h4 class="list-group-item-heading" style="display:inline-block"><a href="#">康师傅</a></h4>
+                        <button type="button" class="btn btn-info edit-facebox-btn" style="float:right">编辑</button>
+                        <p class="list-group-item-text">描述信息: 哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+                    </div>
+                    <div class="list-group-item">
+                        <h4 class="list-group-item-heading" style="display:inline-block"><a href="#">康师傅</a></h4>
+                        <button type="button" class="btn btn-info edit-facebox-btn" style="float:right">编辑</button>
+                        <p class="list-group-item-text">描述信息: 哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+                    </div>
+                </div>
+            </div>
+            <div class="facebox" id="facebox" style="display:none; width: 500px; background-color:white; border-style:solid; border-color:black; border-width:0; border-radius:5px; padding: 20px">
+                <div class="facebox-popup">
+                    <div class="facebox-content">
+                        <form role="form">
+                            <div class="form-group">
+                                <label>供应商名称:</label>
+                                <input id="supplier_name" class="form-control" placeholder="供应商名称">
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">供应商描述:</label>
+                                <textarea id="supplier_des" class="form-control" rows="5" placeholder="供应商描述"></textarea>
+                            </div>
+                            <button type="button" class="close">确定</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
