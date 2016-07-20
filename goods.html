@@ -33,69 +33,113 @@
                 <p class="subtitle">Maoqi Li</p>
                 <p class="normal-text"><span>员工ID: </span><span>1234567890</span></p>
                 <div class="btn-group-vertical" style="width:100%">
-                    <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">商品管理</span></button>
-                    <button type="button" class="btn btn-default active" style="height:50px"><span class="normal-text">分区管理</span></button>
+                    <button type="button" class="btn btn-default active" style="height:50px"><span class="normal-text">商品管理</span></button>
+                    <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">分区管理</span></button>
                     <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">仓库管理</span></button>
                     <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">人员管理</span></button>
                     <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">投诉管理</span></button>
                     <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text">供货商管理</span></button>
                 </div>
             </div>
-            <div class="col-md-8" style="margin-left:20px">
+            <div class="col-md-9" style="margin-left:20px">
                 <!-- 总模块 -->
                 <ul class="nav nav-tabs">
                     <li role="presentation" class=""><a href="#">商品列表</a></li>
                 </ul>
-
-                <!-- 标签 -->
-                <!-- <div class="" style="margin-top:10px">
-                    <span id="" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">楼层列表</span>
-                    <span id="" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">分区列表</span>
-                    <span id="" class="label label-primary" style="display: inline-block; width:80px; height:18px; margin:0 3.5px;">货架列表</span>
-                </div> -->
                 <!-- 搜索框 -->
-                <div class="input-group" style="margin-top:20px">
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-primary">搜索</button>
-                    </span>
-                    <input type="text" class="form-control" placeholder="支持模糊查询">
+                <div class="" style="margin-top:20px">
+                    <button id="add_goods_btn" type="button" class="btn btn-success" style="float:left">增加商品</button>
+                    <div class="input-group col-md-offset-2">
+                        <span class="input-group-btn">
+                            <button id="search_commodity" type="button" class="btn btn-primary">搜索</button>
+                        </span>
+                        <input type="text" class="form-control" placeholder="支持模糊查询">
+                    </div>
                 </div>
+
                 <!-- 表格 -->
-                <table class="table table-striped" style="margin-top:10px">
+                <table class="table table-bordered" style="margin-top:10px">
                     <thead>
                         <tr>
                             <th>商品编号</th>
                             <th>商品名</th>
-                            <th>当前单价（元）</th>
+                            <th>当前单价(元)</th>
+                            <th>保质期(天)</th>
                             <th>仓库编号</th>
                             <th>货架编号</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="all_goods_list">
                         <tr>
                             <th>010</th>
                             <th>康师傅红烧牛肉面</th>
-                            <th>100</th>
+                            <th>
+                                <span>100</span>
+                                <div class="dropdown" style="float:right">
+                                    <button class='btn btn-primary dropdown-toggle' data-toggle='dropdown'>修改</button>
+                                    <div class='dropdown-menu'>
+                                        <input class='input-price' type='text' placeholder='请输入价格'>
+                                        <button class='btn btn-info make-sure-change'>确定</button>
+                                    </div>
+                                </div>
+                            </th>
+                            <th>12</th>
                             <th>10101001010</th>
-                            <th></th>
+                            <th>asas</th>
                         </tr>
+                        <script>
+                            var array = [["李茂琦", "李茂琦", "李茂琦", "李茂琦", "李茂琦", "李茂琦"], ["李茂琦", "李茂琦", "李茂琦", "李茂琦", "李茂琦", "李茂琦"]];
+                            generateGoodsList(array);
+                        </script>
                     </tbody>
                 </table>
             </div>
-            <!-- 弹窗 -->
-            <!-- <div class="facebox" id="facebox" style="display:none; width: 500px; background-color:white; border-style:solid; border-color:black; border-width:0; border-radius:5px; padding: 20px">
-                <div class="facebox-popup">
-                    <div class="facebox-content">
-                        <form role="form">
-                            <div class="form-group">
-                                <label>分区编号:</label>
-                                <input class="form-control" placeholder="请输入该货架所在楼层的分区编号">
-                            </div>
-                            <button id="make_sure" type="button" class="close">确定</button>
-                        </form>
-                    </div>
+        </div>
+        <!-- 弹窗 -->
+        <div class="facebox" id="facebox" style="display:none; width: 500px; background-color:white; border-style:solid; border-color:black; border-width:0; border-radius:5px; padding: 20px">
+            <div class="facebox-popup">
+                <div class="facebox-content">
+                    <form role="form">
+                        <div class="form-group">
+                            <label>商品编号：</label>
+                            <input id="commodity_id" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>商品名：</label>
+                            <input id="commodity_name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>当前单价（元）：</label>
+                            <input id="current_price" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>保质期（天）：</label>
+                            <input id="expiration_time" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>货架编号：</label>
+                            <input id="shelf_id" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>仓库编号：</label>
+                            <input id="warehosue_id" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>是否散装：</label>
+                            <input class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>单位数量的体积：</label>
+                            <input class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>商品类型编号：</label>
+                            <input class="form-control">
+                        </div>
+                        <button id="make_sure_create_district" type="button" class="close">确定</button>
+                    </form>
                 </div>
-            </div> -->
+            </div>
         </div>
     </body>
 </html>

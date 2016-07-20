@@ -84,7 +84,40 @@ function addSupplier() {
     des.attr("class", "list-group-item-text");
     des.text("描述信息：" + supplierDes);
     div.append(des);
-    $("#list_group").append(div);
+    $("#supplier_list").append(div);
+}
+
+
+// 生成供应商列表
+function generateSupplierList(supplierInfoArray){
+    $("#supplier_list").children().remove();
+    supplierInfoArray = [["limaoqi", "chou"], ["xuyunjia", "shuai"]];
+
+    for (i = 0; i < supplierInfoArray.length; ++i) {
+        var supplierName = supplierInfoArray[i][0];
+        var supplierDes = supplierInfoArray[i][1];
+        var div = $("<div></div>");
+        div.attr("class", "list-group-item");
+        var title = $("<h4></h4>");
+        title.attr("class", "list-group-item-heading");
+        title.css("display", "inline-block");
+        var supplier = $("<a></a>");
+        supplier.attr("href", "#");
+        supplier.text(supplierName);
+        title.append(supplier);
+        div.append(title);
+        var editButton = $("<button></button>");
+        editButton.attr("type", "button");
+        editButton.text("编辑");
+        editButton.attr("class", "btn btn-info edit-facebox-btn");
+        editButton.css("float", "right");
+        div.append(editButton);
+        var des = $("<p></p>");
+        des.attr("class", "list-group-item-text");
+        des.text("描述信息：" + supplierDes);
+        div.append(des);
+        $("#supplier_list").append(div);
+    }
 }
 
 // 搜索该供货商可以提供的商品
@@ -182,10 +215,98 @@ $(document).ready(function(){
 
 // 确定创建新分区
 
-
 // 移动货架
 $(document).ready(function(){
     $(".move-btn").on("click", function(){
+        $(this).facebox();
+    })
+})
+
+// ------------------------------------------------------------------------------------------------------------------------------------------
+// 商品管理
+
+$(document).delegate(".make-sure-change", "click", function(){
+    var price = $(this).prev().val();
+    $(this).parent().parent().prev().text(price);
+})
+
+// 添加商品
+function addGoods(dataArray){
+    // dataArray = ["李茂琦", "李茂琦", "李茂琦", "李茂琦", "李茂琦", "李茂琦"];
+    var tr = $("<tr></tr>");
+    for(i = 0; i < dataArray.length; ++i) {
+        if (i != 2) {
+            var th = $("<th></th>");
+            th.text(dataArray[i]);
+            tr.append(th);
+        } else if (i == 2){
+            var th = $("<th></th>");
+            tr.append(th);
+
+            var span = $("<span></span>");
+            span.text(dataArray[i]);
+            th.append(span);
+
+            var div = $("<div></div>");
+            div.attr("class", "dropdown");
+            div.css("float", "right");
+            th.append(div);
+
+            var btn = $("<button></button>");
+            btn.attr("class", "btn btn-primary dropdown-toggle");
+            btn.attr("data-toggle", "dropdown");
+            btn.text("修改");
+            div.append(btn);
+
+            var div2 = $("<div></div>");
+            div2.attr("class", "dropdown-menu");
+            div.append(div2);
+
+            var input = $("<input></input>");
+            input.attr({"class":"input-price", "type":"text", "placeholder":"请输入价格"});
+            div2.append(input);
+
+            var btn2 = $("<button></button>");
+            btn2.attr("class", "btn btn-info make-sure-change");
+            btn2.text("确定");
+            div2.append(btn2);
+        }
+    }
+    $("#all_goods_list").append(tr);
+}
+
+// 生成商品列表
+function generateGoodsList(goodsArray){
+    $("#all_goods_list").children().remove();
+    for (j = 0; j < goodsArray.length; ++j) {
+        addGoods(goodsArray[j]);
+    }
+}
+
+// 确定添加商品
+$(document).ready(function(){
+    $("#make_sure_create_district").click(function(){
+        var commodityName = $("#commodity_name").val();
+        var commodityID = $("#commodity_id").val();
+        var price = $("#current_price").val();
+        var expirationTime = $("#expiration_time").val();
+        var shelfID = $("#shelf_id").val();
+        var warehosueID = $("#warehosue_id").val();
+        var itemInfo = [commodityName, commodityID, price, expirationTime, shelfID, warehosueID];
+        addGoods(itemInfo);
+    })
+})
+
+// 搜索商品
+$(document).ready(function(){
+    $("#search_commodity").click(function(){
+        generateGoodsList();
+    })
+})
+
+
+$(document).ready(function(){
+    $("#add_goods_btn").click(function(){
         $(this).facebox();
     })
 })
