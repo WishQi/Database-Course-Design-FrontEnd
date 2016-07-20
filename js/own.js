@@ -523,6 +523,77 @@ $(document).ready(function(){
 })
 
 // --------------------------------------------------------------------------------------------------------------------------
+// 员工管理
+
+// 点击“新增员工信息”按钮触发的事件
+$(document).ready(function(){
+    $("#add_employee_info").click(function(){
+        $(this).facebox();
+    })
+})
+
+$(document).ready(function(){
+    $("#make_sure_add_employee").click(function(){
+        makeSureAddEmployeeToTable();
+    })
+})
+
+// 确定添加员工信息到表格中
+function makeSureAddEmployeeToTable() {
+    var employeeId = $("#employee_id").val();
+    var employeeName = $("#employee_name").val();
+    var idNum = $("#id_number").val();
+    var workTypeId = $("#worker_type_id").val();
+    var salary = $("#salary").val();
+
+    var array = [employeeId, employeeName, idNum, workTypeId, salary];
+    addEmployeeToTable(array);
+}
+
+// 添加员工信息到表格中
+function addEmployeeToTable(array){
+    var tr = $("<tr></tr>");
+    $("#employee_table").append(tr);
+
+    for (var i = 0; i < 5; ++i) {
+        var th = $("<th></th>");
+        tr.append(th);
+        th.text(array[i]);
+    }
+}
+
+// 生成员工列表  “所有员工”页面调用的函数
+function generateEmployeeTable(array){
+    $("#employee_table").children().remove();
+    for (var i = 0; i < array.length; ++i) {
+        addEmployeeToTable(array[i]);
+    }
+}
+
+// 点击“显示该员工信息”触发的函数
+function showTheEmployeeInfo(infoArray){
+    infoArray = [1,"李茂琦","513001199510170019","haha",100000,1,8,"男","1995-10-17","同济大学"];
+    $("#info1").children().remove();
+    $("#info2").children().remove();
+    var tr1 = $("<tr></tr>");
+    var tr2 = $("<tr></tr>");
+    $("#info1").append(tr1);
+    $("#info2").append(tr2);
+
+    for (var i = 0; i < infoArray.length; ++i) {
+        var data = $("<th></th>");
+        data.text(infoArray[i]);
+        if (i < 5) {
+            tr1.append(data);
+        } else {
+            tr2.append(data);
+        }
+    }
+}
+
+//
+
+// --------------------------------------------------------------------------------------------------------------------------
 // 徐运佳写的，不管李茂琦的事
 
 function BatchlistAddItem(dataArray, warehouseID, commodityType, commodityName)

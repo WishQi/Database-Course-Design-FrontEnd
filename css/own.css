@@ -114,7 +114,7 @@ body {
 }
 
 .jumpLink {
-    float: right;
+    /*float: right;*/
     display: inline-block;
     margin-top: 30px;
     color: white;
