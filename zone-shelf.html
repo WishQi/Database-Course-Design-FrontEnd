@@ -48,6 +48,7 @@
                     <li role="presentation" class=""><a href="#">楼层列表</a></li>
                     <li role="presentation" class=""><a href="#">分区列表</a></li>
                     <li role="presentation" class="active"><a href="#">货架列表</a></li>
+                    <li role="presentation" class=""><a href="#">分区搜索</a></li>
                 </ul>
                 <!-- 标签 -->
                 <div class="" style="margin-top:10px">
@@ -60,13 +61,18 @@
                     <!-- 列表头 -->
                     <div class="list-group-item" style="background-color:#f5f5f5"></div>
                     <!-- 列表具体内容 -->
-                    <li class="list-group-item">
-                        <h4 class="list-group-item-heading" style="display:inline-block">02</h4>
-                        <button type="button" class="btn btn-info move-btn" style="float:right">移动</button>
-                        <p class="list-group-item-text">
-                            描述信息：我特么想回家啊！
-                        </p>
-                    </li>
+                    <div id="shelf_list">
+                        <li class="list-group-item">
+                            <h4 class="list-group-item-heading" style="display:inline-block">02</h4>
+                            <button class="btn btn-info move-btn" style="float:right">移动</button>
+                            <p class="list-group-item-text"><span>所在分区号：</span></p>
+                        </li>
+                        <!-- 测试数据 -->
+                        <!-- <script>
+                            var array = [[1, 2], [3, 4]];
+                            generateShelfList(array);
+                        </script> -->
+                    </div>
                 </ul>
             </div>
             <!-- 弹窗 -->
@@ -78,7 +84,7 @@
                                 <label>分区编号:</label>
                                 <input class="form-control" placeholder="请输入该货架所在楼层的分区编号">
                             </div>
-                            <button id="make_sure" type="button" class="close">确定</button>
+                            <button id="make_sure_move" type="button" class="close">确定</button>
                         </form>
                     </div>
                 </div>

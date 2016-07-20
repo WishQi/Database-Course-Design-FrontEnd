@@ -22,7 +22,7 @@ function warehouseChangeKind(newKind) {
 }
 
 // -----------------------------------------------------------------------------------------------------------------------------------
-// 供应商函数
+// 供应商管理函数
 // 添加供应商
 $(document).ready(function(){
     $("#add_supplier_btn").on("click", function(){
@@ -117,6 +117,46 @@ function generateSupplierList(supplierInfoArray){
         des.text("描述信息：" + supplierDes);
         div.append(des);
         $("#supplier_list").append(div);
+    }
+}
+
+// 生成供应商可以提供的商品列表
+function generateSupplierGoodsList(array){
+    $("#goods_list_group").children().remove();
+    for (var i = 0; i < array.length; ++i) {
+        var commodityName = array[i][0];
+        var commodityDes = array[i][1];
+
+        var div = $("<div></div>");
+        $("#goods_list_group").append(div);
+        div.attr("class", "list-group-item");
+
+        var h4 = $("<h4></h4>");
+        div.append(h4);
+        h4.attr("class", "list-group-item-heading");
+        h4.css("display", "inline-block");
+
+        var a = $("<a></a>");
+        h4.append(a);
+        a.attr("href", "#");
+        a.text(commodityName);
+
+        var btn1 = $("<button></button>");
+        div.append(btn1);
+        btn1.attr("class", "btn btn-danger delete-item-btn");
+        btn1.css("float", "right");
+        btn1.text("删除");
+
+        var btn2 = $("<button></button>");
+        div.append(btn2);
+        btn2.attr("class", "btn btn-primary purchase-goods");
+        btn2.css("float", "right");
+        btn2.text("购进");
+
+        var p = $("<p></p>");
+        div.append(p);
+        p.attr("class", "list-group-item-text");
+        p.text("商品描述：" + commodityDes);
     }
 }
 
@@ -215,10 +255,100 @@ $(document).ready(function(){
 
 // 确定创建新分区
 
-// 移动货架
+// 生成货架列表
+function generateShelfList(shelfInfoArray){
+    $("#shelf_list").children().remove();
+
+    for(var i = 0; i < shelfInfoArray.length; ++i) {
+        var shelfID = shelfInfoArray[i][0];
+        var districtID = shelfInfoArray[i][1];
+
+        var li = $("<li></li>");
+        $("#shelf_list").append(li);
+        li.attr("class", "list-group-item");
+
+        var h4 = $("<h4></h4>");
+        li.append(h4);
+        h4.attr("class", "list-group-item-heading");
+        h4.css("display", "inline-block");
+        h4.text(shelfID);
+
+        var btn = $("<button></button>");
+        li.append(btn);
+        btn.attr("class", "btn btn-info move-btn");
+        btn.css("float", "right");
+        btn.text("移动");
+
+        var p = $("<p></p>");
+        li.append(p);
+        p.attr("class", "list-group-item-text");
+
+        var span1 = $("<span></span>")
+        p.append(span1);
+        span1.text("所在分区号：");
+
+        var span2 = $("<span></span>");
+        p.append(span2);
+        span2.text(districtID);
+    }
+}
+
+// 生成分区列表 分区搜索调用的
+function showSearchDistrictResult(districtInfoArray){
+    $("#district_search_result").children().remove();
+
+    for (var i = 0; i < districtInfoArray.length; ++i) {
+        var districtID = districtInfoArray[i][0];
+        var districtName = districtInfoArray[i][1];
+        var districtFloor = districtInfoArray[i][2];
+
+        var li = $("<li></li>");
+        $("#district_search_result").append(li);
+        li.attr("class", "list-group-item");
+
+        var h4 = $("<h4></h4>");
+        li.append(h4);
+        h4.attr("class", "list-group-item-heading");
+        h4.css("display", "inline-block");
+
+        var a = $("<a></a>");
+        h4.append(a);
+        a.attr("href", "#");
+        a.text(districtID);
+
+        var p = $("<p></p>");
+        li.append(p);
+        p.attr("class", "list-group-item-text");
+
+        var span1 = $("<span></span>")
+        p.append(span1);
+        span1.text("分区名：" + districtName);
+
+        var span2 = $("<span></span>")
+        p.append(span2);
+        span2.attr("class", "col-md-offset-1");
+        span2.text("所在楼层号：" + districtFloor);
+    }
+}
+
+// 点击分区搜索触发的函数
 $(document).ready(function(){
-    $(".move-btn").on("click", function(){
-        $(this).facebox();
+    $("#district_search_btn").click(function(){
+        // 测试数据
+        var array = [["limaoqi", "hairihan", "xuyunjia"], ["hahah", "xixixi", "rriiiririri"]];
+        showSearchDistrictResult(array);
+    })
+})
+
+// 点击“移动”出发的函数
+$(document).delegate(".move-btn", "click", function(){
+    $(this).facebox();
+})
+
+// 确认移动触发的函数
+$(document).ready(function(){
+    $("#make_sure_move").click(function(){
+        // 移动的操作
     })
 })
 
@@ -276,7 +406,7 @@ function addGoods(dataArray){
 }
 
 // 生成商品列表
-function generateGoodsList(goodsArray){
+function generateGoodsTable(goodsArray){
     $("#all_goods_list").children().remove();
     for (j = 0; j < goodsArray.length; ++j) {
         addGoods(goodsArray[j]);
@@ -300,7 +430,7 @@ $(document).ready(function(){
 // 搜索商品
 $(document).ready(function(){
     $("#search_commodity").click(function(){
-        generateGoodsList();
+        generateGoodsTable();
     })
 })
 
@@ -310,3 +440,56 @@ $(document).ready(function(){
         $(this).facebox();
     })
 })
+
+// --------------------------------------------------------------------------------------------------------------------------
+// 徐运佳写的，不管李茂琦的事
+
+function BatchlistAddItem(dataArray, warehouseID, commodityType, commodityName)
+{
+    for (var item in dataArray) {
+        var newItem = document.createElement("a");
+        newItem.setAttribute("href", "warehouse-batch-info.aspx?batchID=" + dataArray[item] +
+            "&warehouseID=" + warehouseID + "&commodityType=" + commodityType + "&commodityName=" +
+            commodityName);
+        newItem.setAttribute("class", "list-group-item");
+        newItem.setAttribute("runat", "server");
+        newItem.innerHTML = dataArray[item];
+        document.getElementById("list-group").appendChild(newItem);
+    }
+}
+
+function CommodityNamelistAddItem(dataArray, warehouseID, commodityType)
+{
+    for (var item in dataArray) {
+        var newItem = document.createElement("a");
+        newItem.setAttribute("href", "warehouse-batch-id.aspx?name=" + dataArray[item] + "&warehouseID=" + warehouseID +
+            "&type=" + commodityType);
+        newItem.setAttribute("class", "list-group-item");
+        newItem.setAttribute("runat", "server");
+        newItem.innerHTML = dataArray[item];
+        document.getElementById("list-group").appendChild(newItem);
+    }
+}
+
+function CommodityTypelistAddItem(dataArray, warehouseID)
+{
+    for (var item in dataArray) {
+        var newItem = document.createElement("a");
+        newItem.setAttribute("href", "warehouse-goods-item.aspx?type=" + dataArray[item] + "&warehouseID=" + warehouseID);
+        newItem.setAttribute("class", "list-group-item");
+        newItem.setAttribute("runat", "server");
+        newItem.innerHTML = dataArray[item];
+        document.getElementById("list-group").appendChild(newItem);
+    }
+}
+
+function WarehouseIDlistAddItem(dataArray) {
+    for (var item in dataArray) {
+        var newItem = document.createElement("a");
+        newItem.setAttribute("href", "warehouse-goods-kind.aspx?id=" + dataArray[item]);
+        newItem.setAttribute("class", "list-group-item");
+        newItem.setAttribute("runat", "server");
+        newItem.innerHTML = dataArray[item];
+        document.getElementById("list-group").appendChild(newItem);
+    }
+}

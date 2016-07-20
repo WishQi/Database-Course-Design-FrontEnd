@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>分区管理-分区列表</title>
+        <title>分区管理-分区搜索</title>
 
         <link rel="stylesheet" href="css/bootstrap.css">
         <script src="js/jquery.js"></script>
@@ -46,9 +46,9 @@
                 <!-- 总模块 -->
                 <ul class="nav nav-tabs">
                     <li role="presentation" class=""><a href="#">楼层列表</a></li>
-                    <li role="presentation" class="active"><a href="#">分区列表</a></li>
+                    <li role="presentation" class=""><a href="#">分区列表</a></li>
                     <li role="presentation" class=""><a href="#">货架列表</a></li>
-                    <li role="presentation" class=""><a href="#">分区搜索</a></li>
+                    <li role="presentation" class="active"><a href="#">分区搜索</a></li>
                 </ul>
                 <!-- 标签 -->
                 <div class="" style="margin-top:10px">
@@ -60,61 +60,27 @@
                 <div id="list_group" class="list-group" style="margin-top:20px">
                     <!-- 列表头部 -->
                     <div class="list-group-item" style="background-color:#f5f5f5">
-                        <div class="">
+                        <!-- <div class="">
                             <button id="create_new_district" type="button" class="btn btn-primary">新建分区</button>
-                        </div>
-                        <!-- <div class="input-group col-md-7">
-                            <input type="text" class="form-control" placeholder="请输入分区号">
-                            <span class="input-group-btn"><button type="button" class="btn btn-success">直接选中分区</button></span>
                         </div> -->
-                    </div>
-                    <!-- 列表具体内容 -->
-                    <div id="district_list">
-                        <div class="list-group-item">
-                            <h4 class="list-group-item-heading" style="display:inline-block"><a href="#">02</a></h4>
-                            <button type="button" class="btn btn-danger delete-item-btn" style="float:right">删除</button>
-                            <div class="dropdown" style="float:right">
-                                <button class='btn btn-primary dropdown-toggle' data-toggle='dropdown'>修改</button>
-                                <div class='dropdown-menu'>
-                                    <li class="dropdown-header">分区描述：</li>
-                                    <textarea class='form-control' placeholder='请输入分区描述信息'></textarea>
-                                    <button class='btn btn-info form-control make-sure-change'>确定修改</button>
-                                </div>
-                            </div>
-                            <p class="list-group-item-text">
-                                <span>分区名:</span>
-                                <span>哈哈哈</span>
-                            </p>
+                        <div class="input-group col-md-7">
+                            <input type="text" class="form-control" placeholder="请输入分区号或分区名">
+                            <span class="input-group-btn"><button id="district_search_btn" class="btn btn-success">分区搜索</button></span>
                         </div>
+                    </div>
+                    <!-- 列表具体内容 搜索结果 -->
+                    <div id="district_search_result">
+                        <li class="list-group-item">
+                            <h4 class="list-group-item-heading" style="display:inline-block"><a href="#">02</a></h4>
+                            <p class="list-group-item-text">
+                                <span>分区名：徐运佳</span>
+                                <span class="col-md-offset-1">所在楼层号：海日汗</span>
+                            </p>
+                        </li>
                     </div>
                 </div>
             </div>
             <!-- 弹窗 -->
-            <div class="facebox" id="facebox" style="display:none; width: 500px; background-color:white; border-style:solid; border-color:black; border-width:0; border-radius:5px; padding: 20px">
-                <div class="facebox-popup">
-                    <div class="facebox-content">
-                        <form role="form">
-                            <div class="form-group">
-                                <label>分区名：</label>
-                                <input class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>分区编号:</label>
-                                <input class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>楼层编号:</label>
-                                <input class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label>分区描述：</label>
-                                <textarea id="supplier_des" class="form-control" rows="5"></textarea>
-                            </div>
-                            <button id="make_sure_create_district" type="button" class="close">确定</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
         </div>
     </body>
 </html>
