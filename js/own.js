@@ -246,6 +246,15 @@ function generateWarehouseList(warehouseIdArray){
 
 // -----------------------------------------------------------------------------------------------------------------------------------
 // 分区管理
+
+// 编辑楼层信息
+$(document).ready(function(){
+    $(".edit-btn").on("click", function(){
+        $("#floor_des").val($(this).next().text());
+        $(this).facebox();
+    })
+})
+
 // 创建新分区
 $(document).ready(function(){
     $("#create_new_district").click(function(){
@@ -253,7 +262,79 @@ $(document).ready(function(){
     })
 })
 
-// 确定创建新分区
+// 添加分区到分区列表
+function addToDistrictList(districtInfo) {
+    var districtID = districtInfo[0];
+    var districtName = districtInfo[1];
+
+    var div1 = $("<div></div>");
+    $("#district_list").append(div1);
+    div1.attr("class", "list-group-item");
+
+    var h4 = $("<h4></h4>");
+    div1.append(h4);
+    h4.attr("class", "list-group-item-heading");
+    h4.css("display", "inline-block");
+
+    var a = $("<a></a>");
+    h4.append(a);
+    a.attr("href", "#");
+    a.text(districtID);
+
+    var btn1 = $("<button></button>");
+    div1.append(btn1);
+    btn1.attr("class", "btn btn-danger delete-item-btn");
+    btn1.css("float", "right");
+    btn1.text("删除");
+
+    var div2 = $("<div></div>");
+    div1.append(div2);
+    div2.attr("class", "dropdown");
+    div2.css("float", "right");
+
+    var btn2 = $("<button></button>");
+    div2.append(btn2);
+    btn2.attr("class", "btn btn-primary dropdown-toggle, change-district-des");
+    btn2.attr("data-toggle", "dropdown");
+    btn2.text("修改");
+
+    var div3 = $("<div></div>");
+    div2.append(div3);
+    div3.attr("class", "dropdown-menu");
+
+    var li = $("<li></li>");
+    div3.append(li);
+    li.attr("class", "dropdown-header");
+    li.text("分区描述");
+
+    var text = $("<textarea></textarea>");
+    div3.append(text);
+    text.attr("class", "form-control");
+    text.attr("placeholder", "请输入分区描述信息");
+
+    var btn3 = $("<button></button>");
+    div3.append(btn3);
+    btn3.attr("class", "btn btn-info form-control");
+    btn3.text("确定修改");
+
+    var p = $("<p></p>");
+    div1.append(p);
+    p.attr("class", "list-group-item-text");
+    p.text("分区名：" + districtName);
+}
+
+// 生成分区列表
+function generateDistrictList(array){
+    $("#district_list").children().remove();
+    for (var i = 0; i < array.length; ++i) {
+        addToDistrictList(array[i]);
+    }
+}
+
+// 点击“修改”按钮触发的事件
+$(document).delegate(".change-district-des", "click", function(){
+    $(this).next().children("textarea").val();
+})
 
 // 生成货架列表
 function generateShelfList(shelfInfoArray){
