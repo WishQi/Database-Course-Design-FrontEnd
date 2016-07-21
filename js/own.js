@@ -761,7 +761,7 @@ function addWarehouseInfoToTable(array){
 function generateWarehouseInfoTable(array){
     $("#warehouse_table").children().remove();
     for (var i = 0; i < array.length; ++i) {
-        addWarehouseInfoToTable(array);
+        addWarehouseInfoToTable(array[i]);
     }
 }
 
