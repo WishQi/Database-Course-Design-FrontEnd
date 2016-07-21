@@ -583,6 +583,20 @@ function showTheEmployeeInfo(infoArray){
     for (var i = 0; i < infoArray.length; ++i) {
         var data = $("<th></th>");
         data.text(infoArray[i]);
+
+        switch (i) {
+            case 0: data.attr("id", "employee_id"); break;
+            case 1: data.attr("id", "employee_name"); break;
+            case 2: data.attr("id", "id_number"); break;
+            case 3: data.attr("id", "worker_type_id"); break;
+            case 4: data.attr("id", "salary"); break;
+            case 5: data.attr("id", "his_floor"); break;
+            case 6: data.attr("id", "work_time"); break;
+            case 7: data.attr("id", "gender"); break;
+            case 8: data.attr("id", "birthdate"); break;
+            case 9: data.attr("id", "address"); break;
+        }
+
         if (i < 5) {
             tr1.append(data);
         } else {
@@ -594,9 +608,83 @@ function showTheEmployeeInfo(infoArray){
 // 点击“修改员工信息”触发的弹窗事件
 $(document).ready(function(){
     $("#change_employee_info").click(function(){
+        $("#worker_type_id_input").val( $("#worker_type_id").text() );
+        $("#his_floor_input").val( $("#his_floor").text() );
+        $("#salary_input").val( $("#salary").text() );
+        $("#work_time_input").val( $("#work_time").text() );
+        $("#address_input").val( $("#address").text() );
         $(this).facebox();
     })
 })
+
+// 确定修改信息
+$(document).ready(function(){
+    $("#make_sure_change_employee_info").click(function(){
+        $("#employee_id").text( $("#worker_type_id_input").val() );
+        $("#his_floor").text( $("#his_floor_input").val() );
+        $("#salary").text( $("#salary_input").val() );
+        $("#work_time").text( $("#work_time_input").val() );
+        $("#address").text( $("#address_input").val() );
+    })
+})
+
+// ----------------------------------------------------------------------------------------------------------------------------
+
+// 投诉管理
+
+// 点击“修改投诉信息”触发的函数
+$(document).ready(function(){
+    $("#change_complaint_info").click(function(){
+        $(this).facebox();
+    })
+})
+
+// 确定修改
+$(document).ready(function(){
+    $("#make_sure_change_condition").click(function(){
+        var data = $("#selected_condition").val();
+        $("#deal_condition").text(data);
+    })
+})
+
+// 生成投诉信息表格
+function generateComplaintTable(array){
+    $("#complaint_info_table").children().remove();
+    for(var i = 0; i < array.length; ++i) {
+        addComplaintInfoToTable(array[i]);
+    }
+}
+
+// 添加投诉信息到表格中
+function addComplaintInfoToTable(array){
+    var tr = $("<tr></tr>");
+    $("#complaint_info_table").append(tr);
+    for (var i = 0; i < array.length; ++i){
+        var th = $("<th></th>");
+        tr.append(th);
+        th.text(array[i]);
+    }
+}
+
+// 点击“查询投诉信息”触发的函数
+function generateOneComplaintInfo(array){
+    array = [1,1,11,1,1];
+    if (array.length == 0) {
+        return 0;
+    }
+    $("#complaint_info").children().remove();
+    var tr = $("<tr></tr>");
+    $("#complaint_info").append(tr);
+    for (var i = 0; i < 4; ++i) {
+        var th = $("<th></th>");
+        tr.append(th);
+        th.text(array[i]);
+        if (i == 3) {
+            th.attr("id", "deal_condition");
+        }
+    }
+    $("#complaint_des").text(array[4]);
+}
 
 // --------------------------------------------------------------------------------------------------------------------------
 // 徐运佳写的，不管李茂琦的事

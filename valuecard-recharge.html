@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>储值卡中心</title>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <script src="js/jquery.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <link rel="stylesheet" href="css/own.css">
+        <script src="js/own.js"></script>
+        <script type="text/javascript">
+            function changeWarehouseKind(newKind) {
+                document.getElementById("warehouse-kind-selector").innerHTML = newKind;
+            }
+        </script>
+    </head>
+    <body>
+        <div class="container clearfix">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">储值卡中心</a>
+                </div>
+                <!-- <form class="navbar-form navbar-left" style="margin-left: 30px" role="search" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="请输入关键字">
+                    </div>
+                </form> -->
+            </nav>
+        </div>
+        <div class="container clearfix">
+            <div class="col-md-2">
+                <!-- <a class="" href="#" style="display:inline-block; border:none; width:100%"><img src="UI_png/cat.png" alt="" style="width:100%"/></a> -->
+                
+                <div class="btn-group-vertical" style="width:100%;margin-top:60px">
+                    <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text"><a href="valuecard.html">储值卡查询余额</a></span></button>
+                    <button type="button" class="btn btn-default active" style="height:50px"><span class="normal-text">充值储值卡</span></button>
+                    <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text"><a href="valuecard-claim.html">储值卡挂失</a></span></button>
+                    <button type="button" class="btn btn-default" style="height:50px"><span class="normal-text"><a href="valuecard-password.html">密码重置</a></span></button>
+                   
+                </div>
+            </div>
+            <div class="col-md-9" style="margin-left:20px">
+                <!-- 总模块 -->
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class=""><a href="#">充值</a></li>
+                </ul>
+                <!-- 搜索框 -->
+                <div class="" style="margin-top:20px">
+                    <div class="col-md-7"  style="margin-top: 20px">
+                        <input type="text" class="form-control" placeholder="请输入卡号">
+                    </div>
+                    <div class="col-md-5"  style="margin-top: 20px">
+                        <input type="text" class="form-control" placeholder="充值金额">
+                    </div>
+                    <div class="col-md-7"  style="margin-top: 20px">
+                        <button id="add_goods_btn" type="button" class="btn btn-success" style="float:left">确认充值</button>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
