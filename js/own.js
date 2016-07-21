@@ -442,7 +442,7 @@ $(document).delegate(".make-sure-change", "click", function(){
 })
 
 // 添加商品
-function addGoods(dataArray){
+function addGoodsToTable(dataArray){
     // dataArray = ["李茂琦", "李茂琦", "李茂琦", "李茂琦", "李茂琦", "李茂琦"];
     var tr = $("<tr></tr>");
     for(i = 0; i < dataArray.length; ++i) {
@@ -490,7 +490,7 @@ function addGoods(dataArray){
 function generateGoodsTable(goodsArray){
     $("#all_goods_list").children().remove();
     for (j = 0; j < goodsArray.length; ++j) {
-        addGoods(goodsArray[j]);
+        addGoodsToTable(goodsArray[j]);
     }
 }
 
@@ -504,7 +504,7 @@ $(document).ready(function(){
         var shelfID = $("#shelf_id").val();
         var warehosueID = $("#warehosue_id").val();
         var itemInfo = [commodityName, commodityID, price, expirationTime, shelfID, warehosueID];
-        addGoods(itemInfo);
+        addGoodsToTable(itemInfo);
     })
 })
 
@@ -591,7 +591,12 @@ function showTheEmployeeInfo(infoArray){
     }
 }
 
-//
+// 点击“修改员工信息”触发的弹窗事件
+$(document).ready(function(){
+    $("#change_employee_info").click(function(){
+        $(this).facebox();
+    })
+})
 
 // --------------------------------------------------------------------------------------------------------------------------
 // 徐运佳写的，不管李茂琦的事
