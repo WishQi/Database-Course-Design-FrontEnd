@@ -686,6 +686,85 @@ function generateOneComplaintInfo(array){
     $("#complaint_des").text(array[4]);
 }
 
+// ----------------------------------------------------------------------------------------------------------------------------
+// 批次管理
+
+function addToWarehouseInfoList(array, j){
+    // for (var i = 0; i < array.length; ++i) {
+        var first = array[0];
+        var second = array[1];
+        var li = $("<li></li>");
+        $("#warehouse_info_list").append(li);
+
+        switch ( (j + 1) % 3) {
+            case 1: li.attr("class", "list-group-item list-group-item-info"); break;
+            case 2: li.attr("class", "list-group-item list-group-item-success"); break;
+            case 0: li.attr("class", "list-group-item list-group-item-warning"); break;
+            default: break;
+        }
+
+        var span1 = $("<span></span>");
+        span1.text(first + "-库存量");
+        var span2 = $("<span></span>");
+        span2.attr("class", "badge");
+        span2.text(second);
+        li.append(span1);
+        li.append(span2);
+}
+
+function generateWarehouseInfoList(array){
+    $("#warehouse_info_list").children().remove();
+    for (var i = 0; i < array.length; ++i) {
+        addToWarehouseInfoList(array[i], i);
+    }
+}
+
+function generateShelfInfoList(array){
+    $("#shelf_id").text(array[0]);
+    $("#floor_id").text(array[1]);
+    $("#in_shelf_amount").text(array[2]);
+}
+
+function generateSaleAndExpirationInfoList(array){
+    $("#total_amount").text(array[0]);
+    $("#sale_amount").text(array[1]);
+    $("#expired_amount").text(array[2]);
+}
+
+function addShelfInfoToTable(array){
+    var tr = $("<tr></tr>");
+    $("#shelf_table").append(tr);
+
+    for (var i = 0; i < 3; ++i) {
+        var th = $("<th></th>").text(array[i]);
+        tr.append(th);
+    }
+}
+
+function generateSelfTable(array){
+    $("#shelf_table").children().remove();
+    for (var i = 0; i < array.length; ++i) {
+        addShelfInfoToTable(array[i]);
+    }
+}
+
+function addWarehouseInfoToTable(array){
+    var tr = $("<tr></tr>");
+    $("#warehouse_table").append(tr);
+
+    for (var i = 0; i < 2; ++i) {
+        var th = $("<th></th>").text(array[i]);
+        tr.append(th);
+    }
+}
+
+function generateWarehouseInfoTable(array){
+    $("#warehouse_table").children().remove();
+    for (var i = 0; i < array.length; ++i) {
+        addWarehouseInfoToTable(array);
+    }
+}
+
 // --------------------------------------------------------------------------------------------------------------------------
 // 徐运佳写的，不管李茂琦的事
 
