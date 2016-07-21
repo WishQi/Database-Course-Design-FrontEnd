@@ -1,3 +1,13 @@
+// ---------------------------------------------------------------------------------------------------------------------------
+// “热卖商品”页面接口
+
+// function showHostSalesList(array){
+//     for (var i = 0; i < 5; ++i) {
+//
+//     }
+// }
+
+
 
 // 仓库函数
 function changeWarehouseKind(newKind) {
@@ -764,6 +774,30 @@ function generateWarehouseInfoTable(array){
         addWarehouseInfoToTable(array[i]);
     }
 }
+
+
+function addToExpiredGoodsTable(array){
+    var tr = $("<tr></tr>");
+    $("#expired_goods_table").append(tr);
+
+    for (var i = 0; i < array.length; ++i) {
+        var th = $("<th></th>");
+        th.text(array[i]);
+        tr.append(th);
+    }
+}
+function generateExpiredGoodsTable(array){
+    $("#expired_goods_table").children().remove();
+    for (var i = 0; i < array.length; ++i) {
+        addToExpiredGoodsTable(array[i]);
+    }
+}
+
+$(document).ready(function(){
+    $("#delete_all_expired_goods").click(function(){
+        $("#expired_goods_table").children().remove();
+    })
+})
 
 // --------------------------------------------------------------------------------------------------------------------------
 // 徐运佳写的，不管李茂琦的事
